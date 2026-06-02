@@ -31,11 +31,18 @@ class CheckAlipayTenantResponse extends Model
      * @var string
      */
     public $tenantId;
+
+    // 租户名称（code）
+    /**
+     * @var string
+     */
+    public $tenantName;
     protected $_name = [
         'reqMsgId'   => 'req_msg_id',
         'resultCode' => 'result_code',
         'resultMsg'  => 'result_msg',
         'tenantId'   => 'tenant_id',
+        'tenantName' => 'tenant_name',
     ];
 
     public function validate()
@@ -56,6 +63,9 @@ class CheckAlipayTenantResponse extends Model
         }
         if (null !== $this->tenantId) {
             $res['tenant_id'] = $this->tenantId;
+        }
+        if (null !== $this->tenantName) {
+            $res['tenant_name'] = $this->tenantName;
         }
 
         return $res;
@@ -80,6 +90,9 @@ class CheckAlipayTenantResponse extends Model
         }
         if (isset($map['tenant_id'])) {
             $model->tenantId = $map['tenant_id'];
+        }
+        if (isset($map['tenant_name'])) {
+            $model->tenantName = $map['tenant_name'];
         }
 
         return $model;

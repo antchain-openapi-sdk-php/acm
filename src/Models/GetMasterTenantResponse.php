@@ -103,6 +103,12 @@ class GetMasterTenantResponse extends Model
      * @var string
      */
     public $firmName;
+
+    // 是否通过数科官网或者支付宝侧实名认证
+    /**
+     * @var bool
+     */
+    public $certified;
     protected $_name = [
         'reqMsgId'    => 'req_msg_id',
         'resultCode'  => 'result_code',
@@ -120,6 +126,7 @@ class GetMasterTenantResponse extends Model
         'certNo'      => 'cert_no',
         'realName'    => 'real_name',
         'firmName'    => 'firm_name',
+        'certified'   => 'certified',
     ];
 
     public function validate()
@@ -176,6 +183,9 @@ class GetMasterTenantResponse extends Model
         }
         if (null !== $this->firmName) {
             $res['firm_name'] = $this->firmName;
+        }
+        if (null !== $this->certified) {
+            $res['certified'] = $this->certified;
         }
 
         return $res;
@@ -236,6 +246,9 @@ class GetMasterTenantResponse extends Model
         }
         if (isset($map['firm_name'])) {
             $model->firmName = $map['firm_name'];
+        }
+        if (isset($map['certified'])) {
+            $model->certified = $map['certified'];
         }
 
         return $model;
