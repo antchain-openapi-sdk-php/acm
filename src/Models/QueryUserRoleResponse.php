@@ -1,13 +1,68 @@
 <?php
 
 // This file is auto-generated, don't edit it. Thanks.
-
 namespace AntChain\Acm\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryUserRoleResponse extends Model
-{
+use AntChain\Acm\Models\Role;
+
+class QueryUserRoleResponse extends Model {
+    protected $_name = [
+        'reqMsgId' => 'req_msg_id',
+        'resultCode' => 'result_code',
+        'resultMsg' => 'result_msg',
+        'roles' => 'roles',
+    ];
+    public function validate() {}
+    public function toMap() {
+        $res = [];
+        if (null !== $this->reqMsgId) {
+            $res['req_msg_id'] = $this->reqMsgId;
+        }
+        if (null !== $this->resultCode) {
+            $res['result_code'] = $this->resultCode;
+        }
+        if (null !== $this->resultMsg) {
+            $res['result_msg'] = $this->resultMsg;
+        }
+        if (null !== $this->roles) {
+            $res['roles'] = [];
+            if(null !== $this->roles && is_array($this->roles)){
+                $n = 0;
+                foreach($this->roles as $item){
+                    $res['roles'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        return $res;
+    }
+    /**
+     * @param array $map
+     * @return QueryUserRoleResponse
+     */
+    public static function fromMap($map = []) {
+        $model = new self();
+        if(isset($map['req_msg_id'])){
+            $model->reqMsgId = $map['req_msg_id'];
+        }
+        if(isset($map['result_code'])){
+            $model->resultCode = $map['result_code'];
+        }
+        if(isset($map['result_msg'])){
+            $model->resultMsg = $map['result_msg'];
+        }
+        if(isset($map['roles'])){
+            if(!empty($map['roles'])){
+                $model->roles = [];
+                $n = 0;
+                foreach($map['roles'] as $item) {
+                    $model->roles[$n++] = null !== $item ? Role::fromMap($item) : $item;
+                }
+            }
+        }
+        return $model;
+    }
     // 请求唯一ID，用于链路跟踪和问题排查
     /**
      * @var string
@@ -31,69 +86,5 @@ class QueryUserRoleResponse extends Model
      * @var Role[]
      */
     public $roles;
-    protected $_name = [
-        'reqMsgId'   => 'req_msg_id',
-        'resultCode' => 'result_code',
-        'resultMsg'  => 'result_msg',
-        'roles'      => 'roles',
-    ];
 
-    public function validate()
-    {
-    }
-
-    public function toMap()
-    {
-        $res = [];
-        if (null !== $this->reqMsgId) {
-            $res['req_msg_id'] = $this->reqMsgId;
-        }
-        if (null !== $this->resultCode) {
-            $res['result_code'] = $this->resultCode;
-        }
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
-        }
-        if (null !== $this->roles) {
-            $res['roles'] = [];
-            if (null !== $this->roles && \is_array($this->roles)) {
-                $n = 0;
-                foreach ($this->roles as $item) {
-                    $res['roles'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-
-        return $res;
-    }
-
-    /**
-     * @param array $map
-     *
-     * @return QueryUserRoleResponse
-     */
-    public static function fromMap($map = [])
-    {
-        $model = new self();
-        if (isset($map['req_msg_id'])) {
-            $model->reqMsgId = $map['req_msg_id'];
-        }
-        if (isset($map['result_code'])) {
-            $model->resultCode = $map['result_code'];
-        }
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
-        }
-        if (isset($map['roles'])) {
-            if (!empty($map['roles'])) {
-                $model->roles = [];
-                $n            = 0;
-                foreach ($map['roles'] as $item) {
-                    $model->roles[$n++] = null !== $item ? Role::fromMap($item) : $item;
-                }
-            }
-        }
-
-        return $model;
-    }
 }

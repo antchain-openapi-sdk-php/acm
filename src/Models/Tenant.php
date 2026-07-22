@@ -1,111 +1,25 @@
 <?php
 
 // This file is auto-generated, don't edit it. Thanks.
-
 namespace AntChain\Acm\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class Tenant extends Model
-{
-    // 蚂蚁通行证签约账户
-    /**
-     * @example antcloud@alipay.com
-     *
-     * @var string
-     */
-    public $antAccount;
-
-    // 蚂蚁通行证uid
-    /**
-     * @example 2088xxxxx1
-     *
-     * @var string
-     */
-    public $antUid;
-
-    // 金融云官网:ANTCLOUD,蚂蚁开放平台：ANTOPEN
-    /**
-     * @example ANTCLOUD
-     *
-     * @var string
-     */
-    public $businessOwnerId;
-
-    // 租户创建时间，ISO8601格式
-    /**
-     * @example
-     *
-     * @var string
-     */
-    public $createTime;
-
-    // 租户所在的企业的唯一标识
-    /**
-     * @example 2088201881714570
-     *
-     * @var string
-     */
-    public $customer;
-
-    // 租户描述信息
-    /**
-     * @example the default tenant
-     *
-     * @var string
-     */
-    public $description;
-
-    // 租户唯一标识
-    /**
-     * @example TSCPDICN
-     *
-     * @var string
-     */
-    public $id;
-
-    // 租户内部id
-    /**
-     * @example 0000000001
-     *
-     * @var string
-     */
-    public $internalId;
-
-    // 租户显示名称
-    /**
-     * @example myTenant
-     *
-     * @var string
-     */
-    public $name;
-
-    // 租户最近一次修改时间，ISO8601格式
-    /**
-     * @example
-     *
-     * @var string
-     */
-    public $updateTime;
+class Tenant extends Model {
     protected $_name = [
-        'antAccount'      => 'ant_account',
-        'antUid'          => 'ant_uid',
+        'antAccount' => 'ant_account',
+        'antUid' => 'ant_uid',
         'businessOwnerId' => 'business_owner_id',
-        'createTime'      => 'create_time',
-        'customer'        => 'customer',
-        'description'     => 'description',
-        'id'              => 'id',
-        'internalId'      => 'internal_id',
-        'name'            => 'name',
-        'updateTime'      => 'update_time',
+        'createTime' => 'create_time',
+        'customer' => 'customer',
+        'description' => 'description',
+        'id' => 'id',
+        'internalId' => 'internal_id',
+        'name' => 'name',
+        'updateTime' => 'update_time',
     ];
-
-    public function validate()
-    {
-    }
-
-    public function toMap()
-    {
+    public function validate() {}
+    public function toMap() {
         $res = [];
         if (null !== $this->antAccount) {
             $res['ant_account'] = $this->antAccount;
@@ -137,49 +51,114 @@ class Tenant extends Model
         if (null !== $this->updateTime) {
             $res['update_time'] = $this->updateTime;
         }
-
         return $res;
     }
-
     /**
      * @param array $map
-     *
      * @return Tenant
      */
-    public static function fromMap($map = [])
-    {
+    public static function fromMap($map = []) {
         $model = new self();
-        if (isset($map['ant_account'])) {
+        if(isset($map['ant_account'])){
             $model->antAccount = $map['ant_account'];
         }
-        if (isset($map['ant_uid'])) {
+        if(isset($map['ant_uid'])){
             $model->antUid = $map['ant_uid'];
         }
-        if (isset($map['business_owner_id'])) {
+        if(isset($map['business_owner_id'])){
             $model->businessOwnerId = $map['business_owner_id'];
         }
-        if (isset($map['create_time'])) {
+        if(isset($map['create_time'])){
             $model->createTime = $map['create_time'];
         }
-        if (isset($map['customer'])) {
+        if(isset($map['customer'])){
             $model->customer = $map['customer'];
         }
-        if (isset($map['description'])) {
+        if(isset($map['description'])){
             $model->description = $map['description'];
         }
-        if (isset($map['id'])) {
+        if(isset($map['id'])){
             $model->id = $map['id'];
         }
-        if (isset($map['internal_id'])) {
+        if(isset($map['internal_id'])){
             $model->internalId = $map['internal_id'];
         }
-        if (isset($map['name'])) {
+        if(isset($map['name'])){
             $model->name = $map['name'];
         }
-        if (isset($map['update_time'])) {
+        if(isset($map['update_time'])){
             $model->updateTime = $map['update_time'];
         }
-
         return $model;
     }
+    // 蚂蚁通行证签约账户
+    /**
+     * @example antcloud@alipay.com
+     * @var string
+     */
+    public $antAccount;
+
+    // 蚂蚁通行证uid
+    /**
+     * @example 2088xxxxx1
+     * @var string
+     */
+    public $antUid;
+
+    // 金融云官网:ANTCLOUD,蚂蚁开放平台：ANTOPEN
+    /**
+     * @example ANTCLOUD
+     * @var string
+     */
+    public $businessOwnerId;
+
+    // 租户创建时间，ISO8601格式
+    /**
+     * @example 
+     * @var string
+     */
+    public $createTime;
+
+    // 租户所在的企业的唯一标识
+    /**
+     * @example 2088201881714570
+     * @var string
+     */
+    public $customer;
+
+    // 租户描述信息
+    /**
+     * @example the default tenant
+     * @var string
+     */
+    public $description;
+
+    // 租户唯一标识
+    /**
+     * @example TSCPDICN
+     * @var string
+     */
+    public $id;
+
+    // 租户内部id
+    /**
+     * @example 0000000001
+     * @var string
+     */
+    public $internalId;
+
+    // 租户显示名称
+    /**
+     * @example myTenant
+     * @var string
+     */
+    public $name;
+
+    // 租户最近一次修改时间，ISO8601格式
+    /**
+     * @example 
+     * @var string
+     */
+    public $updateTime;
+
 }

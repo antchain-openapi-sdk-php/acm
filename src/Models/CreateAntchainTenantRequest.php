@@ -1,13 +1,143 @@
 <?php
 
 // This file is auto-generated, don't edit it. Thanks.
-
 namespace AntChain\Acm\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateAntchainTenantRequest extends Model
-{
+class CreateAntchainTenantRequest extends Model {
+    protected $_name = [
+        'authToken' => 'auth_token',
+        'name' => 'name',
+        'userType' => 'user_type',
+        'certNo' => 'cert_no',
+        'certType' => 'cert_type',
+        'realName' => 'real_name',
+        'artificialPersonCertNo' => 'artificial_person_cert_no',
+        'artificialPersonCertType' => 'artificial_person_cert_type',
+        'loginName' => 'login_name',
+        'tenantId' => 'tenant_id',
+        'bussinessCode' => 'bussiness_code',
+        'bussinessRole' => 'bussiness_role',
+        'isAlipayTenant' => 'is_alipay_tenant',
+        'antchainCertified' => 'antchain_certified',
+        'sourceUserId' => 'source_user_id',
+        'registerArea' => 'register_area',
+    ];
+    public function validate() {
+        Model::validateRequired('name', $this->name, true);
+        Model::validateRequired('userType', $this->userType, true);
+        Model::validateRequired('bussinessCode', $this->bussinessCode, true);
+        Model::validateRequired('isAlipayTenant', $this->isAlipayTenant, true);
+    }
+    public function toMap() {
+        $res = [];
+        if (null !== $this->authToken) {
+            $res['auth_token'] = $this->authToken;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+        if (null !== $this->userType) {
+            $res['user_type'] = $this->userType;
+        }
+        if (null !== $this->certNo) {
+            $res['cert_no'] = $this->certNo;
+        }
+        if (null !== $this->certType) {
+            $res['cert_type'] = $this->certType;
+        }
+        if (null !== $this->realName) {
+            $res['real_name'] = $this->realName;
+        }
+        if (null !== $this->artificialPersonCertNo) {
+            $res['artificial_person_cert_no'] = $this->artificialPersonCertNo;
+        }
+        if (null !== $this->artificialPersonCertType) {
+            $res['artificial_person_cert_type'] = $this->artificialPersonCertType;
+        }
+        if (null !== $this->loginName) {
+            $res['login_name'] = $this->loginName;
+        }
+        if (null !== $this->tenantId) {
+            $res['tenant_id'] = $this->tenantId;
+        }
+        if (null !== $this->bussinessCode) {
+            $res['bussiness_code'] = $this->bussinessCode;
+        }
+        if (null !== $this->bussinessRole) {
+            $res['bussiness_role'] = $this->bussinessRole;
+        }
+        if (null !== $this->isAlipayTenant) {
+            $res['is_alipay_tenant'] = $this->isAlipayTenant;
+        }
+        if (null !== $this->antchainCertified) {
+            $res['antchain_certified'] = $this->antchainCertified;
+        }
+        if (null !== $this->sourceUserId) {
+            $res['source_user_id'] = $this->sourceUserId;
+        }
+        if (null !== $this->registerArea) {
+            $res['register_area'] = $this->registerArea;
+        }
+        return $res;
+    }
+    /**
+     * @param array $map
+     * @return CreateAntchainTenantRequest
+     */
+    public static function fromMap($map = []) {
+        $model = new self();
+        if(isset($map['auth_token'])){
+            $model->authToken = $map['auth_token'];
+        }
+        if(isset($map['name'])){
+            $model->name = $map['name'];
+        }
+        if(isset($map['user_type'])){
+            $model->userType = $map['user_type'];
+        }
+        if(isset($map['cert_no'])){
+            $model->certNo = $map['cert_no'];
+        }
+        if(isset($map['cert_type'])){
+            $model->certType = $map['cert_type'];
+        }
+        if(isset($map['real_name'])){
+            $model->realName = $map['real_name'];
+        }
+        if(isset($map['artificial_person_cert_no'])){
+            $model->artificialPersonCertNo = $map['artificial_person_cert_no'];
+        }
+        if(isset($map['artificial_person_cert_type'])){
+            $model->artificialPersonCertType = $map['artificial_person_cert_type'];
+        }
+        if(isset($map['login_name'])){
+            $model->loginName = $map['login_name'];
+        }
+        if(isset($map['tenant_id'])){
+            $model->tenantId = $map['tenant_id'];
+        }
+        if(isset($map['bussiness_code'])){
+            $model->bussinessCode = $map['bussiness_code'];
+        }
+        if(isset($map['bussiness_role'])){
+            $model->bussinessRole = $map['bussiness_role'];
+        }
+        if(isset($map['is_alipay_tenant'])){
+            $model->isAlipayTenant = $map['is_alipay_tenant'];
+        }
+        if(isset($map['antchain_certified'])){
+            $model->antchainCertified = $map['antchain_certified'];
+        }
+        if(isset($map['source_user_id'])){
+            $model->sourceUserId = $map['source_user_id'];
+        }
+        if(isset($map['register_area'])){
+            $model->registerArea = $map['register_area'];
+        }
+        return $model;
+    }
     // OAuth模式下的授权token
     /**
      * @var string
@@ -99,138 +229,11 @@ class CreateAntchainTenantRequest extends Model
      * @var string
      */
     public $sourceUserId;
-    protected $_name = [
-        'authToken'                => 'auth_token',
-        'name'                     => 'name',
-        'userType'                 => 'user_type',
-        'certNo'                   => 'cert_no',
-        'certType'                 => 'cert_type',
-        'realName'                 => 'real_name',
-        'artificialPersonCertNo'   => 'artificial_person_cert_no',
-        'artificialPersonCertType' => 'artificial_person_cert_type',
-        'loginName'                => 'login_name',
-        'tenantId'                 => 'tenant_id',
-        'bussinessCode'            => 'bussiness_code',
-        'bussinessRole'            => 'bussiness_role',
-        'isAlipayTenant'           => 'is_alipay_tenant',
-        'antchainCertified'        => 'antchain_certified',
-        'sourceUserId'             => 'source_user_id',
-    ];
 
-    public function validate()
-    {
-        Model::validateRequired('name', $this->name, true);
-        Model::validateRequired('userType', $this->userType, true);
-        Model::validateRequired('bussinessCode', $this->bussinessCode, true);
-        Model::validateRequired('isAlipayTenant', $this->isAlipayTenant, true);
-    }
-
-    public function toMap()
-    {
-        $res = [];
-        if (null !== $this->authToken) {
-            $res['auth_token'] = $this->authToken;
-        }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
-        if (null !== $this->userType) {
-            $res['user_type'] = $this->userType;
-        }
-        if (null !== $this->certNo) {
-            $res['cert_no'] = $this->certNo;
-        }
-        if (null !== $this->certType) {
-            $res['cert_type'] = $this->certType;
-        }
-        if (null !== $this->realName) {
-            $res['real_name'] = $this->realName;
-        }
-        if (null !== $this->artificialPersonCertNo) {
-            $res['artificial_person_cert_no'] = $this->artificialPersonCertNo;
-        }
-        if (null !== $this->artificialPersonCertType) {
-            $res['artificial_person_cert_type'] = $this->artificialPersonCertType;
-        }
-        if (null !== $this->loginName) {
-            $res['login_name'] = $this->loginName;
-        }
-        if (null !== $this->tenantId) {
-            $res['tenant_id'] = $this->tenantId;
-        }
-        if (null !== $this->bussinessCode) {
-            $res['bussiness_code'] = $this->bussinessCode;
-        }
-        if (null !== $this->bussinessRole) {
-            $res['bussiness_role'] = $this->bussinessRole;
-        }
-        if (null !== $this->isAlipayTenant) {
-            $res['is_alipay_tenant'] = $this->isAlipayTenant;
-        }
-        if (null !== $this->antchainCertified) {
-            $res['antchain_certified'] = $this->antchainCertified;
-        }
-        if (null !== $this->sourceUserId) {
-            $res['source_user_id'] = $this->sourceUserId;
-        }
-
-        return $res;
-    }
-
+    // 注册区域
     /**
-     * @param array $map
-     *
-     * @return CreateAntchainTenantRequest
+     * @var string
      */
-    public static function fromMap($map = [])
-    {
-        $model = new self();
-        if (isset($map['auth_token'])) {
-            $model->authToken = $map['auth_token'];
-        }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
-        if (isset($map['user_type'])) {
-            $model->userType = $map['user_type'];
-        }
-        if (isset($map['cert_no'])) {
-            $model->certNo = $map['cert_no'];
-        }
-        if (isset($map['cert_type'])) {
-            $model->certType = $map['cert_type'];
-        }
-        if (isset($map['real_name'])) {
-            $model->realName = $map['real_name'];
-        }
-        if (isset($map['artificial_person_cert_no'])) {
-            $model->artificialPersonCertNo = $map['artificial_person_cert_no'];
-        }
-        if (isset($map['artificial_person_cert_type'])) {
-            $model->artificialPersonCertType = $map['artificial_person_cert_type'];
-        }
-        if (isset($map['login_name'])) {
-            $model->loginName = $map['login_name'];
-        }
-        if (isset($map['tenant_id'])) {
-            $model->tenantId = $map['tenant_id'];
-        }
-        if (isset($map['bussiness_code'])) {
-            $model->bussinessCode = $map['bussiness_code'];
-        }
-        if (isset($map['bussiness_role'])) {
-            $model->bussinessRole = $map['bussiness_role'];
-        }
-        if (isset($map['is_alipay_tenant'])) {
-            $model->isAlipayTenant = $map['is_alipay_tenant'];
-        }
-        if (isset($map['antchain_certified'])) {
-            $model->antchainCertified = $map['antchain_certified'];
-        }
-        if (isset($map['source_user_id'])) {
-            $model->sourceUserId = $map['source_user_id'];
-        }
+    public $registerArea;
 
-        return $model;
-    }
 }

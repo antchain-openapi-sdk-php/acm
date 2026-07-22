@@ -1,13 +1,138 @@
 <?php
 
 // This file is auto-generated, don't edit it. Thanks.
-
 namespace AntChain\Acm\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateAlipayTenantResponse extends Model
-{
+class CreateAlipayTenantResponse extends Model {
+    protected $_name = [
+        'reqMsgId' => 'req_msg_id',
+        'resultCode' => 'result_code',
+        'resultMsg' => 'result_msg',
+        'tenantId' => 'tenant_id',
+        'tenantName' => 'tenant_name',
+        'loginName' => 'login_name',
+        'customerId' => 'customer_id',
+        'description' => 'description',
+        'userType' => 'user_type',
+        'tenantLevel' => 'tenant_level',
+        'certType' => 'cert_type',
+        'certNo' => 'cert_no',
+        'realName' => 'real_name',
+        'firmName' => 'firm_name',
+        'createTime' => 'create_time',
+        'updateTime' => 'update_time',
+    ];
+    public function validate() {}
+    public function toMap() {
+        $res = [];
+        if (null !== $this->reqMsgId) {
+            $res['req_msg_id'] = $this->reqMsgId;
+        }
+        if (null !== $this->resultCode) {
+            $res['result_code'] = $this->resultCode;
+        }
+        if (null !== $this->resultMsg) {
+            $res['result_msg'] = $this->resultMsg;
+        }
+        if (null !== $this->tenantId) {
+            $res['tenant_id'] = $this->tenantId;
+        }
+        if (null !== $this->tenantName) {
+            $res['tenant_name'] = $this->tenantName;
+        }
+        if (null !== $this->loginName) {
+            $res['login_name'] = $this->loginName;
+        }
+        if (null !== $this->customerId) {
+            $res['customer_id'] = $this->customerId;
+        }
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
+        if (null !== $this->userType) {
+            $res['user_type'] = $this->userType;
+        }
+        if (null !== $this->tenantLevel) {
+            $res['tenant_level'] = $this->tenantLevel;
+        }
+        if (null !== $this->certType) {
+            $res['cert_type'] = $this->certType;
+        }
+        if (null !== $this->certNo) {
+            $res['cert_no'] = $this->certNo;
+        }
+        if (null !== $this->realName) {
+            $res['real_name'] = $this->realName;
+        }
+        if (null !== $this->firmName) {
+            $res['firm_name'] = $this->firmName;
+        }
+        if (null !== $this->createTime) {
+            $res['create_time'] = $this->createTime;
+        }
+        if (null !== $this->updateTime) {
+            $res['update_time'] = $this->updateTime;
+        }
+        return $res;
+    }
+    /**
+     * @param array $map
+     * @return CreateAlipayTenantResponse
+     */
+    public static function fromMap($map = []) {
+        $model = new self();
+        if(isset($map['req_msg_id'])){
+            $model->reqMsgId = $map['req_msg_id'];
+        }
+        if(isset($map['result_code'])){
+            $model->resultCode = $map['result_code'];
+        }
+        if(isset($map['result_msg'])){
+            $model->resultMsg = $map['result_msg'];
+        }
+        if(isset($map['tenant_id'])){
+            $model->tenantId = $map['tenant_id'];
+        }
+        if(isset($map['tenant_name'])){
+            $model->tenantName = $map['tenant_name'];
+        }
+        if(isset($map['login_name'])){
+            $model->loginName = $map['login_name'];
+        }
+        if(isset($map['customer_id'])){
+            $model->customerId = $map['customer_id'];
+        }
+        if(isset($map['description'])){
+            $model->description = $map['description'];
+        }
+        if(isset($map['user_type'])){
+            $model->userType = $map['user_type'];
+        }
+        if(isset($map['tenant_level'])){
+            $model->tenantLevel = $map['tenant_level'];
+        }
+        if(isset($map['cert_type'])){
+            $model->certType = $map['cert_type'];
+        }
+        if(isset($map['cert_no'])){
+            $model->certNo = $map['cert_no'];
+        }
+        if(isset($map['real_name'])){
+            $model->realName = $map['real_name'];
+        }
+        if(isset($map['firm_name'])){
+            $model->firmName = $map['firm_name'];
+        }
+        if(isset($map['create_time'])){
+            $model->createTime = $map['create_time'];
+        }
+        if(isset($map['update_time'])){
+            $model->updateTime = $map['update_time'];
+        }
+        return $model;
+    }
     // 请求唯一ID，用于链路跟踪和问题排查
     /**
      * @var string
@@ -103,141 +228,5 @@ class CreateAlipayTenantResponse extends Model
      * @var string
      */
     public $updateTime;
-    protected $_name = [
-        'reqMsgId'    => 'req_msg_id',
-        'resultCode'  => 'result_code',
-        'resultMsg'   => 'result_msg',
-        'tenantId'    => 'tenant_id',
-        'tenantName'  => 'tenant_name',
-        'loginName'   => 'login_name',
-        'customerId'  => 'customer_id',
-        'description' => 'description',
-        'userType'    => 'user_type',
-        'tenantLevel' => 'tenant_level',
-        'certType'    => 'cert_type',
-        'certNo'      => 'cert_no',
-        'realName'    => 'real_name',
-        'firmName'    => 'firm_name',
-        'createTime'  => 'create_time',
-        'updateTime'  => 'update_time',
-    ];
 
-    public function validate()
-    {
-    }
-
-    public function toMap()
-    {
-        $res = [];
-        if (null !== $this->reqMsgId) {
-            $res['req_msg_id'] = $this->reqMsgId;
-        }
-        if (null !== $this->resultCode) {
-            $res['result_code'] = $this->resultCode;
-        }
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
-        }
-        if (null !== $this->tenantId) {
-            $res['tenant_id'] = $this->tenantId;
-        }
-        if (null !== $this->tenantName) {
-            $res['tenant_name'] = $this->tenantName;
-        }
-        if (null !== $this->loginName) {
-            $res['login_name'] = $this->loginName;
-        }
-        if (null !== $this->customerId) {
-            $res['customer_id'] = $this->customerId;
-        }
-        if (null !== $this->description) {
-            $res['description'] = $this->description;
-        }
-        if (null !== $this->userType) {
-            $res['user_type'] = $this->userType;
-        }
-        if (null !== $this->tenantLevel) {
-            $res['tenant_level'] = $this->tenantLevel;
-        }
-        if (null !== $this->certType) {
-            $res['cert_type'] = $this->certType;
-        }
-        if (null !== $this->certNo) {
-            $res['cert_no'] = $this->certNo;
-        }
-        if (null !== $this->realName) {
-            $res['real_name'] = $this->realName;
-        }
-        if (null !== $this->firmName) {
-            $res['firm_name'] = $this->firmName;
-        }
-        if (null !== $this->createTime) {
-            $res['create_time'] = $this->createTime;
-        }
-        if (null !== $this->updateTime) {
-            $res['update_time'] = $this->updateTime;
-        }
-
-        return $res;
-    }
-
-    /**
-     * @param array $map
-     *
-     * @return CreateAlipayTenantResponse
-     */
-    public static function fromMap($map = [])
-    {
-        $model = new self();
-        if (isset($map['req_msg_id'])) {
-            $model->reqMsgId = $map['req_msg_id'];
-        }
-        if (isset($map['result_code'])) {
-            $model->resultCode = $map['result_code'];
-        }
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
-        }
-        if (isset($map['tenant_id'])) {
-            $model->tenantId = $map['tenant_id'];
-        }
-        if (isset($map['tenant_name'])) {
-            $model->tenantName = $map['tenant_name'];
-        }
-        if (isset($map['login_name'])) {
-            $model->loginName = $map['login_name'];
-        }
-        if (isset($map['customer_id'])) {
-            $model->customerId = $map['customer_id'];
-        }
-        if (isset($map['description'])) {
-            $model->description = $map['description'];
-        }
-        if (isset($map['user_type'])) {
-            $model->userType = $map['user_type'];
-        }
-        if (isset($map['tenant_level'])) {
-            $model->tenantLevel = $map['tenant_level'];
-        }
-        if (isset($map['cert_type'])) {
-            $model->certType = $map['cert_type'];
-        }
-        if (isset($map['cert_no'])) {
-            $model->certNo = $map['cert_no'];
-        }
-        if (isset($map['real_name'])) {
-            $model->realName = $map['real_name'];
-        }
-        if (isset($map['firm_name'])) {
-            $model->firmName = $map['firm_name'];
-        }
-        if (isset($map['create_time'])) {
-            $model->createTime = $map['create_time'];
-        }
-        if (isset($map['update_time'])) {
-            $model->updateTime = $map['update_time'];
-        }
-
-        return $model;
-    }
 }

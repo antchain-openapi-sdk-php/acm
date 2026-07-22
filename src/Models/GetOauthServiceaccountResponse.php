@@ -1,13 +1,96 @@
 <?php
 
 // This file is auto-generated, don't edit it. Thanks.
-
 namespace AntChain\Acm\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetOauthServiceaccountResponse extends Model
-{
+class GetOauthServiceaccountResponse extends Model {
+    protected $_name = [
+        'reqMsgId' => 'req_msg_id',
+        'resultCode' => 'result_code',
+        'resultMsg' => 'result_msg',
+        'accessKey' => 'access_key',
+        'accessSecret' => 'access_secret',
+        'alias' => 'alias',
+        'description' => 'description',
+        'id' => 'id',
+        'name' => 'name',
+        'tenantId' => 'tenant_id',
+    ];
+    public function validate() {}
+    public function toMap() {
+        $res = [];
+        if (null !== $this->reqMsgId) {
+            $res['req_msg_id'] = $this->reqMsgId;
+        }
+        if (null !== $this->resultCode) {
+            $res['result_code'] = $this->resultCode;
+        }
+        if (null !== $this->resultMsg) {
+            $res['result_msg'] = $this->resultMsg;
+        }
+        if (null !== $this->accessKey) {
+            $res['access_key'] = $this->accessKey;
+        }
+        if (null !== $this->accessSecret) {
+            $res['access_secret'] = $this->accessSecret;
+        }
+        if (null !== $this->alias) {
+            $res['alias'] = $this->alias;
+        }
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+        if (null !== $this->tenantId) {
+            $res['tenant_id'] = $this->tenantId;
+        }
+        return $res;
+    }
+    /**
+     * @param array $map
+     * @return GetOauthServiceaccountResponse
+     */
+    public static function fromMap($map = []) {
+        $model = new self();
+        if(isset($map['req_msg_id'])){
+            $model->reqMsgId = $map['req_msg_id'];
+        }
+        if(isset($map['result_code'])){
+            $model->resultCode = $map['result_code'];
+        }
+        if(isset($map['result_msg'])){
+            $model->resultMsg = $map['result_msg'];
+        }
+        if(isset($map['access_key'])){
+            $model->accessKey = $map['access_key'];
+        }
+        if(isset($map['access_secret'])){
+            $model->accessSecret = $map['access_secret'];
+        }
+        if(isset($map['alias'])){
+            $model->alias = $map['alias'];
+        }
+        if(isset($map['description'])){
+            $model->description = $map['description'];
+        }
+        if(isset($map['id'])){
+            $model->id = $map['id'];
+        }
+        if(isset($map['name'])){
+            $model->name = $map['name'];
+        }
+        if(isset($map['tenant_id'])){
+            $model->tenantId = $map['tenant_id'];
+        }
+        return $model;
+    }
     // 请求唯一ID，用于链路跟踪和问题排查
     /**
      * @var string
@@ -67,99 +150,5 @@ class GetOauthServiceaccountResponse extends Model
      * @var string
      */
     public $tenantId;
-    protected $_name = [
-        'reqMsgId'     => 'req_msg_id',
-        'resultCode'   => 'result_code',
-        'resultMsg'    => 'result_msg',
-        'accessKey'    => 'access_key',
-        'accessSecret' => 'access_secret',
-        'alias'        => 'alias',
-        'description'  => 'description',
-        'id'           => 'id',
-        'name'         => 'name',
-        'tenantId'     => 'tenant_id',
-    ];
 
-    public function validate()
-    {
-    }
-
-    public function toMap()
-    {
-        $res = [];
-        if (null !== $this->reqMsgId) {
-            $res['req_msg_id'] = $this->reqMsgId;
-        }
-        if (null !== $this->resultCode) {
-            $res['result_code'] = $this->resultCode;
-        }
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
-        }
-        if (null !== $this->accessKey) {
-            $res['access_key'] = $this->accessKey;
-        }
-        if (null !== $this->accessSecret) {
-            $res['access_secret'] = $this->accessSecret;
-        }
-        if (null !== $this->alias) {
-            $res['alias'] = $this->alias;
-        }
-        if (null !== $this->description) {
-            $res['description'] = $this->description;
-        }
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
-        if (null !== $this->tenantId) {
-            $res['tenant_id'] = $this->tenantId;
-        }
-
-        return $res;
-    }
-
-    /**
-     * @param array $map
-     *
-     * @return GetOauthServiceaccountResponse
-     */
-    public static function fromMap($map = [])
-    {
-        $model = new self();
-        if (isset($map['req_msg_id'])) {
-            $model->reqMsgId = $map['req_msg_id'];
-        }
-        if (isset($map['result_code'])) {
-            $model->resultCode = $map['result_code'];
-        }
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
-        }
-        if (isset($map['access_key'])) {
-            $model->accessKey = $map['access_key'];
-        }
-        if (isset($map['access_secret'])) {
-            $model->accessSecret = $map['access_secret'];
-        }
-        if (isset($map['alias'])) {
-            $model->alias = $map['alias'];
-        }
-        if (isset($map['description'])) {
-            $model->description = $map['description'];
-        }
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
-        if (isset($map['tenant_id'])) {
-            $model->tenantId = $map['tenant_id'];
-        }
-
-        return $model;
-    }
 }

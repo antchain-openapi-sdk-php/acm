@@ -1,13 +1,136 @@
 <?php
 
 // This file is auto-generated, don't edit it. Thanks.
-
 namespace AntChain\Acm\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateOperatorResponse extends Model
-{
+class UpdateOperatorResponse extends Model {
+    protected $_name = [
+        'reqMsgId' => 'req_msg_id',
+        'resultCode' => 'result_code',
+        'resultMsg' => 'result_msg',
+        'createTime' => 'create_time',
+        'customer' => 'customer',
+        'email' => 'email',
+        'id' => 'id',
+        'loginName' => 'login_name',
+        'mobile' => 'mobile',
+        'nickname' => 'nickname',
+        'realName' => 'real_name',
+        'status' => 'status',
+        'tenants' => 'tenants',
+        'updateTime' => 'update_time',
+    ];
+    public function validate() {
+        Model::validateRequired('customer', $this->customer, true);
+        Model::validateRequired('email', $this->email, true);
+        Model::validateRequired('id', $this->id, true);
+        Model::validateRequired('loginName', $this->loginName, true);
+        Model::validateRequired('mobile', $this->mobile, true);
+        Model::validateRequired('nickname', $this->nickname, true);
+        Model::validateRequired('realName', $this->realName, true);
+        Model::validateRequired('status', $this->status, true);
+        Model::validateRequired('tenants', $this->tenants, true);
+    }
+    public function toMap() {
+        $res = [];
+        if (null !== $this->reqMsgId) {
+            $res['req_msg_id'] = $this->reqMsgId;
+        }
+        if (null !== $this->resultCode) {
+            $res['result_code'] = $this->resultCode;
+        }
+        if (null !== $this->resultMsg) {
+            $res['result_msg'] = $this->resultMsg;
+        }
+        if (null !== $this->createTime) {
+            $res['create_time'] = $this->createTime;
+        }
+        if (null !== $this->customer) {
+            $res['customer'] = $this->customer;
+        }
+        if (null !== $this->email) {
+            $res['email'] = $this->email;
+        }
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
+        }
+        if (null !== $this->loginName) {
+            $res['login_name'] = $this->loginName;
+        }
+        if (null !== $this->mobile) {
+            $res['mobile'] = $this->mobile;
+        }
+        if (null !== $this->nickname) {
+            $res['nickname'] = $this->nickname;
+        }
+        if (null !== $this->realName) {
+            $res['real_name'] = $this->realName;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+        if (null !== $this->tenants) {
+            $res['tenants'] = $this->tenants;
+        }
+        if (null !== $this->updateTime) {
+            $res['update_time'] = $this->updateTime;
+        }
+        return $res;
+    }
+    /**
+     * @param array $map
+     * @return UpdateOperatorResponse
+     */
+    public static function fromMap($map = []) {
+        $model = new self();
+        if(isset($map['req_msg_id'])){
+            $model->reqMsgId = $map['req_msg_id'];
+        }
+        if(isset($map['result_code'])){
+            $model->resultCode = $map['result_code'];
+        }
+        if(isset($map['result_msg'])){
+            $model->resultMsg = $map['result_msg'];
+        }
+        if(isset($map['create_time'])){
+            $model->createTime = $map['create_time'];
+        }
+        if(isset($map['customer'])){
+            $model->customer = $map['customer'];
+        }
+        if(isset($map['email'])){
+            $model->email = $map['email'];
+        }
+        if(isset($map['id'])){
+            $model->id = $map['id'];
+        }
+        if(isset($map['login_name'])){
+            $model->loginName = $map['login_name'];
+        }
+        if(isset($map['mobile'])){
+            $model->mobile = $map['mobile'];
+        }
+        if(isset($map['nickname'])){
+            $model->nickname = $map['nickname'];
+        }
+        if(isset($map['real_name'])){
+            $model->realName = $map['real_name'];
+        }
+        if(isset($map['status'])){
+            $model->status = $map['status'];
+        }
+        if(isset($map['tenants'])){
+            if(!empty($map['tenants'])){
+                $model->tenants = $map['tenants'];
+            }
+        }
+        if(isset($map['update_time'])){
+            $model->updateTime = $map['update_time'];
+        }
+        return $model;
+    }
     // 请求唯一ID，用于链路跟踪和问题排查
     /**
      * @var string
@@ -91,138 +214,5 @@ class UpdateOperatorResponse extends Model
      * @var string
      */
     public $updateTime;
-    protected $_name = [
-        'reqMsgId'   => 'req_msg_id',
-        'resultCode' => 'result_code',
-        'resultMsg'  => 'result_msg',
-        'createTime' => 'create_time',
-        'customer'   => 'customer',
-        'email'      => 'email',
-        'id'         => 'id',
-        'loginName'  => 'login_name',
-        'mobile'     => 'mobile',
-        'nickname'   => 'nickname',
-        'realName'   => 'real_name',
-        'status'     => 'status',
-        'tenants'    => 'tenants',
-        'updateTime' => 'update_time',
-    ];
 
-    public function validate()
-    {
-        Model::validateRequired('customer', $this->customer, true);
-        Model::validateRequired('email', $this->email, true);
-        Model::validateRequired('id', $this->id, true);
-        Model::validateRequired('loginName', $this->loginName, true);
-        Model::validateRequired('mobile', $this->mobile, true);
-        Model::validateRequired('nickname', $this->nickname, true);
-        Model::validateRequired('realName', $this->realName, true);
-        Model::validateRequired('status', $this->status, true);
-        Model::validateRequired('tenants', $this->tenants, true);
-    }
-
-    public function toMap()
-    {
-        $res = [];
-        if (null !== $this->reqMsgId) {
-            $res['req_msg_id'] = $this->reqMsgId;
-        }
-        if (null !== $this->resultCode) {
-            $res['result_code'] = $this->resultCode;
-        }
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
-        }
-        if (null !== $this->createTime) {
-            $res['create_time'] = $this->createTime;
-        }
-        if (null !== $this->customer) {
-            $res['customer'] = $this->customer;
-        }
-        if (null !== $this->email) {
-            $res['email'] = $this->email;
-        }
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-        if (null !== $this->loginName) {
-            $res['login_name'] = $this->loginName;
-        }
-        if (null !== $this->mobile) {
-            $res['mobile'] = $this->mobile;
-        }
-        if (null !== $this->nickname) {
-            $res['nickname'] = $this->nickname;
-        }
-        if (null !== $this->realName) {
-            $res['real_name'] = $this->realName;
-        }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
-        if (null !== $this->tenants) {
-            $res['tenants'] = $this->tenants;
-        }
-        if (null !== $this->updateTime) {
-            $res['update_time'] = $this->updateTime;
-        }
-
-        return $res;
-    }
-
-    /**
-     * @param array $map
-     *
-     * @return UpdateOperatorResponse
-     */
-    public static function fromMap($map = [])
-    {
-        $model = new self();
-        if (isset($map['req_msg_id'])) {
-            $model->reqMsgId = $map['req_msg_id'];
-        }
-        if (isset($map['result_code'])) {
-            $model->resultCode = $map['result_code'];
-        }
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
-        }
-        if (isset($map['create_time'])) {
-            $model->createTime = $map['create_time'];
-        }
-        if (isset($map['customer'])) {
-            $model->customer = $map['customer'];
-        }
-        if (isset($map['email'])) {
-            $model->email = $map['email'];
-        }
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-        if (isset($map['login_name'])) {
-            $model->loginName = $map['login_name'];
-        }
-        if (isset($map['mobile'])) {
-            $model->mobile = $map['mobile'];
-        }
-        if (isset($map['nickname'])) {
-            $model->nickname = $map['nickname'];
-        }
-        if (isset($map['real_name'])) {
-            $model->realName = $map['real_name'];
-        }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
-        if (isset($map['tenants'])) {
-            if (!empty($map['tenants'])) {
-                $model->tenants = $map['tenants'];
-            }
-        }
-        if (isset($map['update_time'])) {
-            $model->updateTime = $map['update_time'];
-        }
-
-        return $model;
-    }
 }
