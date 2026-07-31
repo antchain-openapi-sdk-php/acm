@@ -15,6 +15,8 @@ use AlibabaCloud\Tea\RpcUtils\RpcUtils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use AntChain\Acm\Models\QueryUserProjectRequest;
 use AntChain\Acm\Models\QueryUserProjectResponse;
+use AntChain\Acm\Models\UpdateTenantCountryRequest;
+use AntChain\Acm\Models\UpdateTenantCountryResponse;
 use AntChain\Acm\Models\GetCustomerRequest;
 use AntChain\Acm\Models\GetCustomerResponse;
 use AntChain\Acm\Models\GetOperatorRequest;
@@ -243,7 +245,7 @@ class Client {
                     "req_msg_id" => UtilClient::getNonce(),
                     "access_key" => $this->_accessKeyId,
                     "base_sdk_version" => "TeaSDK-2.0",
-                    "sdk_version" => "1.6.12",
+                    "sdk_version" => "1.6.13",
                     "_prod_code" => "acm",
                     "_prod_channel" => "undefined"
                 ];
@@ -311,6 +313,31 @@ class Client {
     public function queryUserProjectEx($request, $headers, $runtime){
         Utils::validateModel($request);
         return QueryUserProjectResponse::fromMap($this->doRequest("1.0", "antcloud.acm.user.project.query", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 更新蚂蚁链账号的国家代码
+     * Summary: 更新蚂蚁链账号的国家代码
+     * @param UpdateTenantCountryRequest $request
+     * @return UpdateTenantCountryResponse
+     */
+    public function updateTenantCountry($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->updateTenantCountryEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 更新蚂蚁链账号的国家代码
+     * Summary: 更新蚂蚁链账号的国家代码
+     * @param UpdateTenantCountryRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return UpdateTenantCountryResponse
+     */
+    public function updateTenantCountryEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return UpdateTenantCountryResponse::fromMap($this->doRequest("1.0", "antcloud.acm.tenant.country.update", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
     }
 
     /**
