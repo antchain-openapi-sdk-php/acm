@@ -18,6 +18,7 @@ class UpdateCustomerIdentityRequest extends Model {
         'artificialPersonCertType' => 'artificial_person_cert_type',
         'businessCode' => 'business_code',
         'bussinessRole' => 'bussiness_role',
+        'countryCode' => 'country_code',
     ];
     public function validate() {
         Model::validateRequired('name', $this->name, true);
@@ -60,6 +61,9 @@ class UpdateCustomerIdentityRequest extends Model {
         if (null !== $this->bussinessRole) {
             $res['bussiness_role'] = $this->bussinessRole;
         }
+        if (null !== $this->countryCode) {
+            $res['country_code'] = $this->countryCode;
+        }
         return $res;
     }
     /**
@@ -100,6 +104,9 @@ class UpdateCustomerIdentityRequest extends Model {
         }
         if(isset($map['bussiness_role'])){
             $model->bussinessRole = $map['bussiness_role'];
+        }
+        if(isset($map['country_code'])){
+            $model->countryCode = $map['country_code'];
         }
         return $model;
     }
@@ -168,5 +175,11 @@ class UpdateCustomerIdentityRequest extends Model {
      * @var string
      */
     public $bussinessRole;
+
+    // 国家代码
+    /**
+     * @var string
+     */
+    public $countryCode;
 
 }
