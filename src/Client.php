@@ -17,6 +17,8 @@ use AntChain\Acm\Models\QueryUserProjectRequest;
 use AntChain\Acm\Models\QueryUserProjectResponse;
 use AntChain\Acm\Models\UpdateTenantCountryRequest;
 use AntChain\Acm\Models\UpdateTenantCountryResponse;
+use AntChain\Acm\Models\QueryTenantProjectRequest;
+use AntChain\Acm\Models\QueryTenantProjectResponse;
 use AntChain\Acm\Models\GetCustomerRequest;
 use AntChain\Acm\Models\GetCustomerResponse;
 use AntChain\Acm\Models\GetOperatorRequest;
@@ -245,7 +247,7 @@ class Client {
                     "req_msg_id" => UtilClient::getNonce(),
                     "access_key" => $this->_accessKeyId,
                     "base_sdk_version" => "TeaSDK-2.0",
-                    "sdk_version" => "1.6.14",
+                    "sdk_version" => "1.6.15",
                     "_prod_code" => "acm",
                     "_prod_channel" => "undefined"
                 ];
@@ -338,6 +340,31 @@ class Client {
     public function updateTenantCountryEx($request, $headers, $runtime){
         Utils::validateModel($request);
         return UpdateTenantCountryResponse::fromMap($this->doRequest("1.0", "antcloud.acm.tenant.country.update", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 查询租户下项目列表
+     * Summary: 查询租户下项目列表
+     * @param QueryTenantProjectRequest $request
+     * @return QueryTenantProjectResponse
+     */
+    public function queryTenantProject($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->queryTenantProjectEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 查询租户下项目列表
+     * Summary: 查询租户下项目列表
+     * @param QueryTenantProjectRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return QueryTenantProjectResponse
+     */
+    public function queryTenantProjectEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return QueryTenantProjectResponse::fromMap($this->doRequest("1.0", "antcloud.acm.tenant.project.query", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
     }
 
     /**
