@@ -10,10 +10,12 @@ class UpdateTenantCountryRequest extends Model {
         'authToken' => 'auth_token',
         'tenantId' => 'tenant_id',
         'countryCode' => 'country_code',
+        'businessCode' => 'business_code',
     ];
     public function validate() {
         Model::validateRequired('tenantId', $this->tenantId, true);
         Model::validateRequired('countryCode', $this->countryCode, true);
+        Model::validateRequired('businessCode', $this->businessCode, true);
     }
     public function toMap() {
         $res = [];
@@ -25,6 +27,9 @@ class UpdateTenantCountryRequest extends Model {
         }
         if (null !== $this->countryCode) {
             $res['country_code'] = $this->countryCode;
+        }
+        if (null !== $this->businessCode) {
+            $res['business_code'] = $this->businessCode;
         }
         return $res;
     }
@@ -42,6 +47,9 @@ class UpdateTenantCountryRequest extends Model {
         }
         if(isset($map['country_code'])){
             $model->countryCode = $map['country_code'];
+        }
+        if(isset($map['business_code'])){
+            $model->businessCode = $map['business_code'];
         }
         return $model;
     }
@@ -62,5 +70,11 @@ class UpdateTenantCountryRequest extends Model {
      * @var string
      */
     public $countryCode;
+
+    // 场景码
+    /**
+     * @var string
+     */
+    public $businessCode;
 
 }
