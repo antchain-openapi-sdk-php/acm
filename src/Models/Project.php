@@ -13,6 +13,7 @@ class Project extends Model {
         'isDefault' => 'is_default',
         'gmtCreate' => 'gmt_create',
         'gmtModified' => 'gmt_modified',
+        'status' => 'status',
     ];
     public function validate() {
         Model::validateRequired('projectId', $this->projectId, true);
@@ -20,6 +21,7 @@ class Project extends Model {
         Model::validateRequired('isDefault', $this->isDefault, true);
         Model::validateRequired('gmtCreate', $this->gmtCreate, true);
         Model::validateRequired('gmtModified', $this->gmtModified, true);
+        Model::validateRequired('status', $this->status, true);
         Model::validatePattern('gmtCreate', $this->gmtCreate, '\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})');
         Model::validatePattern('gmtModified', $this->gmtModified, '\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})');
     }
@@ -42,6 +44,9 @@ class Project extends Model {
         }
         if (null !== $this->gmtModified) {
             $res['gmt_modified'] = $this->gmtModified;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
         return $res;
     }
@@ -68,6 +73,9 @@ class Project extends Model {
         }
         if(isset($map['gmt_modified'])){
             $model->gmtModified = $map['gmt_modified'];
+        }
+        if(isset($map['status'])){
+            $model->status = $map['status'];
         }
         return $model;
     }
@@ -112,5 +120,12 @@ class Project extends Model {
      * @var string
      */
     public $gmtModified;
+
+    // 状态(false代表禁用，true代表启用)
+    /**
+     * @example true
+     * @var bool
+     */
+    public $status;
 
 }

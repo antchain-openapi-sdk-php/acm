@@ -19,6 +19,20 @@ use AntChain\Acm\Models\UpdateTenantCountryRequest;
 use AntChain\Acm\Models\UpdateTenantCountryResponse;
 use AntChain\Acm\Models\QueryTenantProjectRequest;
 use AntChain\Acm\Models\QueryTenantProjectResponse;
+use AntChain\Acm\Models\CreateTenantProjectRequest;
+use AntChain\Acm\Models\CreateTenantProjectResponse;
+use AntChain\Acm\Models\UpdateTenantProjectRequest;
+use AntChain\Acm\Models\UpdateTenantProjectResponse;
+use AntChain\Acm\Models\UpdateProjectStatusRequest;
+use AntChain\Acm\Models\UpdateProjectStatusResponse;
+use AntChain\Acm\Models\QueryProjectMemberRequest;
+use AntChain\Acm\Models\QueryProjectMemberResponse;
+use AntChain\Acm\Models\AddProjectMemberRequest;
+use AntChain\Acm\Models\AddProjectMemberResponse;
+use AntChain\Acm\Models\RemoveProjectMemberRequest;
+use AntChain\Acm\Models\RemoveProjectMemberResponse;
+use AntChain\Acm\Models\QueryProjectUserRequest;
+use AntChain\Acm\Models\QueryProjectUserResponse;
 use AntChain\Acm\Models\GetCustomerRequest;
 use AntChain\Acm\Models\GetCustomerResponse;
 use AntChain\Acm\Models\GetOperatorRequest;
@@ -220,7 +234,7 @@ class Client {
                 "period" => Utils::defaultNumber($runtime->backoffPeriod, 1)
             ],
             "ignoreSSL" => $runtime->ignoreSSL,
-            // 访问IaaS层的身份
+            // 项目成员
         ];
         $_lastRequest = null;
         $_lastException = null;
@@ -247,7 +261,7 @@ class Client {
                     "req_msg_id" => UtilClient::getNonce(),
                     "access_key" => $this->_accessKeyId,
                     "base_sdk_version" => "TeaSDK-2.0",
-                    "sdk_version" => "1.6.15",
+                    "sdk_version" => "1.6.16",
                     "_prod_code" => "acm",
                     "_prod_channel" => "undefined"
                 ];
@@ -365,6 +379,181 @@ class Client {
     public function queryTenantProjectEx($request, $headers, $runtime){
         Utils::validateModel($request);
         return QueryTenantProjectResponse::fromMap($this->doRequest("1.0", "antcloud.acm.tenant.project.query", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 创建项目
+     * Summary: 创建项目
+     * @param CreateTenantProjectRequest $request
+     * @return CreateTenantProjectResponse
+     */
+    public function createTenantProject($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->createTenantProjectEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 创建项目
+     * Summary: 创建项目
+     * @param CreateTenantProjectRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return CreateTenantProjectResponse
+     */
+    public function createTenantProjectEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return CreateTenantProjectResponse::fromMap($this->doRequest("1.0", "antcloud.acm.tenant.project.create", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 编辑项目
+     * Summary: 编辑项目
+     * @param UpdateTenantProjectRequest $request
+     * @return UpdateTenantProjectResponse
+     */
+    public function updateTenantProject($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->updateTenantProjectEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 编辑项目
+     * Summary: 编辑项目
+     * @param UpdateTenantProjectRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return UpdateTenantProjectResponse
+     */
+    public function updateTenantProjectEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return UpdateTenantProjectResponse::fromMap($this->doRequest("1.0", "antcloud.acm.tenant.project.update", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 更新项目状态
+     * Summary: 更新项目状态
+     * @param UpdateProjectStatusRequest $request
+     * @return UpdateProjectStatusResponse
+     */
+    public function updateProjectStatus($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->updateProjectStatusEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 更新项目状态
+     * Summary: 更新项目状态
+     * @param UpdateProjectStatusRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return UpdateProjectStatusResponse
+     */
+    public function updateProjectStatusEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return UpdateProjectStatusResponse::fromMap($this->doRequest("1.0", "antcloud.acm.project.status.update", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 分页查询项目成员列表
+     * Summary: 分页查询项目成员列表
+     * @param QueryProjectMemberRequest $request
+     * @return QueryProjectMemberResponse
+     */
+    public function queryProjectMember($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->queryProjectMemberEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 分页查询项目成员列表
+     * Summary: 分页查询项目成员列表
+     * @param QueryProjectMemberRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return QueryProjectMemberResponse
+     */
+    public function queryProjectMemberEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return QueryProjectMemberResponse::fromMap($this->doRequest("1.0", "antcloud.acm.project.member.query", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 批量添加项目成员
+     * Summary: 批量添加项目成员
+     * @param AddProjectMemberRequest $request
+     * @return AddProjectMemberResponse
+     */
+    public function addProjectMember($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->addProjectMemberEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 批量添加项目成员
+     * Summary: 批量添加项目成员
+     * @param AddProjectMemberRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return AddProjectMemberResponse
+     */
+    public function addProjectMemberEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return AddProjectMemberResponse::fromMap($this->doRequest("1.0", "antcloud.acm.project.member.add", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 移除项目成员
+     * Summary: 移除项目成员
+     * @param RemoveProjectMemberRequest $request
+     * @return RemoveProjectMemberResponse
+     */
+    public function removeProjectMember($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->removeProjectMemberEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 移除项目成员
+     * Summary: 移除项目成员
+     * @param RemoveProjectMemberRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return RemoveProjectMemberResponse
+     */
+    public function removeProjectMemberEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return RemoveProjectMemberResponse::fromMap($this->doRequest("1.0", "antcloud.acm.project.member.remove", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 查询尚未加入该项目的用户列表
+     * Summary: 查询尚未加入该项目的用户列表
+     * @param QueryProjectUserRequest $request
+     * @return QueryProjectUserResponse
+     */
+    public function queryProjectUser($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->queryProjectUserEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 查询尚未加入该项目的用户列表
+     * Summary: 查询尚未加入该项目的用户列表
+     * @param QueryProjectUserRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return QueryProjectUserResponse
+     */
+    public function queryProjectUserEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return QueryProjectUserResponse::fromMap($this->doRequest("1.0", "antcloud.acm.project.user.query", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
     }
 
     /**
