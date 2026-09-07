@@ -33,6 +33,8 @@ use AntChain\Acm\Models\RemoveProjectMemberRequest;
 use AntChain\Acm\Models\RemoveProjectMemberResponse;
 use AntChain\Acm\Models\QueryProjectUserRequest;
 use AntChain\Acm\Models\QueryProjectUserResponse;
+use AntChain\Acm\Models\CreateOperatorNormalRequest;
+use AntChain\Acm\Models\CreateOperatorNormalResponse;
 use AntChain\Acm\Models\GetCustomerRequest;
 use AntChain\Acm\Models\GetCustomerResponse;
 use AntChain\Acm\Models\GetOperatorRequest;
@@ -261,7 +263,7 @@ class Client {
                     "req_msg_id" => UtilClient::getNonce(),
                     "access_key" => $this->_accessKeyId,
                     "base_sdk_version" => "TeaSDK-2.0",
-                    "sdk_version" => "1.6.16",
+                    "sdk_version" => "1.6.17",
                     "_prod_code" => "acm",
                     "_prod_channel" => "undefined"
                 ];
@@ -554,6 +556,31 @@ class Client {
     public function queryProjectUserEx($request, $headers, $runtime){
         Utils::validateModel($request);
         return QueryProjectUserResponse::fromMap($this->doRequest("1.0", "antcloud.acm.project.user.query", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 创建操作员（无需激活）
+     * Summary: 创建操作员（无需激活）
+     * @param CreateOperatorNormalRequest $request
+     * @return CreateOperatorNormalResponse
+     */
+    public function createOperatorNormal($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->createOperatorNormalEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 创建操作员（无需激活）
+     * Summary: 创建操作员（无需激活）
+     * @param CreateOperatorNormalRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return CreateOperatorNormalResponse
+     */
+    public function createOperatorNormalEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return CreateOperatorNormalResponse::fromMap($this->doRequest("1.0", "antcloud.acm.operator.normal.create", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
     }
 
     /**
