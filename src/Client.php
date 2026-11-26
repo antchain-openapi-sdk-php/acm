@@ -35,6 +35,8 @@ use AntChain\Acm\Models\QueryProjectUserRequest;
 use AntChain\Acm\Models\QueryProjectUserResponse;
 use AntChain\Acm\Models\CreateOperatorNormalRequest;
 use AntChain\Acm\Models\CreateOperatorNormalResponse;
+use AntChain\Acm\Models\DeleteTenantProjectRequest;
+use AntChain\Acm\Models\DeleteTenantProjectResponse;
 use AntChain\Acm\Models\GetCustomerRequest;
 use AntChain\Acm\Models\GetCustomerResponse;
 use AntChain\Acm\Models\GetOperatorRequest;
@@ -263,7 +265,7 @@ class Client {
                     "req_msg_id" => UtilClient::getNonce(),
                     "access_key" => $this->_accessKeyId,
                     "base_sdk_version" => "TeaSDK-2.0",
-                    "sdk_version" => "1.6.17",
+                    "sdk_version" => "1.6.18",
                     "_prod_code" => "acm",
                     "_prod_channel" => "undefined"
                 ];
@@ -581,6 +583,31 @@ class Client {
     public function createOperatorNormalEx($request, $headers, $runtime){
         Utils::validateModel($request);
         return CreateOperatorNormalResponse::fromMap($this->doRequest("1.0", "antcloud.acm.operator.normal.create", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 删除项目
+     * Summary: 删除项目
+     * @param DeleteTenantProjectRequest $request
+     * @return DeleteTenantProjectResponse
+     */
+    public function deleteTenantProject($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->deleteTenantProjectEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 删除项目
+     * Summary: 删除项目
+     * @param DeleteTenantProjectRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return DeleteTenantProjectResponse
+     */
+    public function deleteTenantProjectEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return DeleteTenantProjectResponse::fromMap($this->doRequest("1.0", "antcloud.acm.tenant.project.delete", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
     }
 
     /**
